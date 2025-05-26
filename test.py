@@ -15,10 +15,10 @@ clock = pygame.time.Clock()
 FPS = 60
 
 # Kleuren
-WHITE = (255, 255, 255)
+
 
 # achtergronden & afbeeldingen 
-bg = pygame.image.load('images/bg.png')
+bg = pygame.image.load('oopproject\images\Achtergrond.png')
 bg = pygame.transform.scale(bg, (800, 600))
 
 
@@ -26,7 +26,7 @@ bg = pygame.transform.scale(bg, (800, 600))
 class Mario(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
-        self.image_right = pygame.image.load('images/mario.png').convert_alpha()
+        self.image_right = pygame.image.load('oopproject\images\mario.png').convert_alpha()
         self.image_right = pygame.transform.scale(self.image_right, (50, 60))
         self.image_left = pygame.transform.flip(self.image_right, True, False)
         self.image = self.image_right
@@ -84,7 +84,6 @@ all_sprites.add(player)
 run = True
 while run:
     clock.tick(FPS)
-    frame.fill(WHITE)
     #achtergrond
     frame.blit(bg, (0,0))
 

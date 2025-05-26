@@ -13,13 +13,13 @@ clock = pygame.time.Clock()
 FPS = 60
 
 # Kleuren
-achter_grond = pygame.image.load(r'image/Achtergrond.png')
+bg = pygame.image.load('oopproject\images\Achtergrond.png')
 
 # Mario Klasse
 class Mario(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
-        self.image_right = pygame.image.load('images/mario.png').convert_alpha()
+        self.image_right = pygame.image.load('oopproject\images\mario.png').convert_alpha()
         self.image_right = pygame.transform.scale(self.image_right, (50, 60))
         self.image_left = pygame.transform.flip(self.image_right, True, False)
         self.image = self.image_right
@@ -77,13 +77,12 @@ all_sprites.add(player)
 run = True
 while run:
     clock.tick(FPS)
-
+    screen.blit(bg, (0,-330))
     keys = pygame.key.get_pressed()
     all_sprites.update(keys)
     all_sprites.draw(screen)
 
-    pygame.draw.rect(screen, (0, 200, 0), (0, HEIGHT - 50, WIDTH, 50))  # grond
-    blokken.draw(screen)
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False

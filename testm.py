@@ -13,7 +13,7 @@ clock = pygame.time.Clock()
 FPS = 60
 
 # Kleuren
-achter_grond = pygame.image.load(r'Achtergrond.png')
+achter_grond = pygame.image.load(r'image/Achtergrond.png')
 
 # Mario Klasse
 class Mario(pygame.sprite.Sprite):

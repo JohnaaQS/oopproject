@@ -3,9 +3,9 @@ class Blocks():
 
     def __init__(self) -> None:
         "Create Wall object"
-        with open("oopproject/trappen.json", "r") as fp:
+        with open("trappen.json", "r") as fp:
             blokposities = json.load(fp)
-        self.img = pygame.image.load(r"oopproject\images\blokje.png")
+        self.img = pygame.image.load(r"images\blokje.png")
         self.img  = pygame.transform.scale(self.img, (30,30)) 
         self.blokken: list[pygame.Rect] = []
         for blok in blokposities:

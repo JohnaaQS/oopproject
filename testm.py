@@ -1,18 +1,19 @@
 import pygame
 import sys
-
+import terrein
 # Init
 pygame.init()
 WIDTH, HEIGHT = 800, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Mario Mannetje (1 afbeelding)")
+blokken = terrein.Blocks()
 
 # Clock
 clock = pygame.time.Clock()
 FPS = 60
 
 # Kleuren
-WHITE = (255, 255, 255)
+achter_grond = pygame.image.load(r'Achtergrond.png')
 
 # Mario Klasse
 class Mario(pygame.sprite.Sprite):
@@ -76,14 +77,13 @@ all_sprites.add(player)
 run = True
 while run:
     clock.tick(FPS)
-    screen.fill(WHITE)
 
     keys = pygame.key.get_pressed()
     all_sprites.update(keys)
     all_sprites.draw(screen)
 
     pygame.draw.rect(screen, (0, 200, 0), (0, HEIGHT - 50, WIDTH, 50))  # grond
-
+    blokken.draw(screen)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False

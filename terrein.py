@@ -5,7 +5,7 @@ class Blocks():
         "Create Wall object"
         with open("blokken_positei.json", "r") as fp:
             blokposities = json.load(fp)
-        self.img = pygame.image.load(r"Schermafbeelding 2025-05-26 084525.png")
+        self.img = pygame.image.load(r"images/blokje.png")
         self.img  = pygame.transform.scale(self.img, (30,30)) 
         self.blokken: list[pygame.Rect] = []
         for blok in blokposities:

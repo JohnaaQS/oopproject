@@ -12,6 +12,9 @@ mixer.init()
 clock = pygame.time.Clock()
 fps = 60 
 
+#achtergrond
+#bg = pygame.image.load('pyg/bg1.png') 
+
 # Maak frame aan met bepaalde grootte.
 breed = 800  
 hoog = 600

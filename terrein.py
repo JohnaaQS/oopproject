@@ -1,5 +1,5 @@
 import pygame, json
-class Blocks():
+class Blocks(pygame.Rect):
 
     def __init__(self) -> None:
         "Create Wall object"
@@ -10,7 +10,6 @@ class Blocks():
         self.blokken: list[pygame.Rect] = []
         for blok in blokposities:
             self.blokken.append(pygame.Rect(blok[0],blok[1], self.img.get_width(), self.img.get_height()))
-
     def draw(self, screen:pygame.surface.Surface) -> None:
         "Draw wall on screen"
 

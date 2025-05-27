@@ -67,7 +67,7 @@ class Mario(pygame.sprite.Sprite):
             self.image = self.image_right
         else:
             self.image = self.image_left
-
+        
 # Maak Mario
 player = Mario(100, HEIGHT - 150)
 all_sprites = pygame.sprite.Group()
@@ -77,12 +77,11 @@ all_sprites.add(player)
 run = True
 while run:
     clock.tick(FPS)
-    
     screen.blit(bg, (0,-330))
     keys = pygame.key.get_pressed()
     all_sprites.update(keys)
     all_sprites.draw(screen)
-
+    blokken.draw(screen)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

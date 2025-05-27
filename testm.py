@@ -77,6 +77,7 @@ all_sprites.add(player)
 run = True
 while run:
     clock.tick(FPS)
+    
     screen.blit(bg, (0,-330))
     keys = pygame.key.get_pressed()
     all_sprites.update(keys)

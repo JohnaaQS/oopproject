@@ -35,13 +35,12 @@ all_sprites.add(enemy)
 run = True
 while run:
     clock.tick(FPS)
-    
     screen.blit(bg, (0,-330))
     keys = pygame.key.get_pressed()
 
     all_sprites.update(keys)
     all_sprites.draw(screen)
-
+    blokken.draw(screen)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False

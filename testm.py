@@ -77,13 +77,18 @@ all_sprites.add(player)
 run = True
 while run:
     clock.tick(FPS)
+    screen.fill((0,0,0))
 
     keys = pygame.key.get_pressed()
-    all_sprites.update(keys)
-    all_sprites.draw(screen)
 
     pygame.draw.rect(screen, (0, 200, 0), (0, HEIGHT - 50, WIDTH, 50))  # grond
     blokken.draw(screen)
+    
+    all_sprites.update(keys)
+    all_sprites.draw(screen)
+    
+    
+    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False

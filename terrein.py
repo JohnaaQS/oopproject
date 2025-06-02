@@ -3,7 +3,7 @@ class Blocks(pygame.Rect):
 
     def __init__(self) -> None:
         "Create Wall object"
-        with open("trappen.json", "r") as fp:
+        with open("platform.json", "r") as fp:
             blokposities = json.load(fp)
         self.img = pygame.image.load(r"images\blokje.png")
         self.img  = pygame.transform.scale(self.img, (30,30)) 
@@ -16,7 +16,4 @@ class Blocks(pygame.Rect):
         # Overloop ieder blok & teken op scherm.
         for blok in self.blokken:
             screen.blit(self.img, (blok.x, blok.y))
-
-        # Toon scherm aan gebruiker.
-        pygame.display.flip()
 

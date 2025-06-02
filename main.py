@@ -29,8 +29,8 @@ enemy = koepa.KoepaTroepa(200, HEIGHT - 150)
 all_sprites = pygame.sprite.Group()
 all_sprites.add(player)
 all_sprites.add(enemy)
-
-
+if pygame.sprite.groupcollide(all_sprites, blokken, False,False):
+    print("ojay")
 # Main loop
 run = True
 while run:

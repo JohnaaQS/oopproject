@@ -1,5 +1,5 @@
 import pygame
-
+import terrein, koepa
 class Mario(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
@@ -7,14 +7,14 @@ class Mario(pygame.sprite.Sprite):
         self.image_right = pygame.transform.scale(self.image_right, (50, 60))
         self.image_left = pygame.transform.flip(self.image_right, True, False)
         self.image = self.image_right
-
+        
         self.rect = self.image.get_rect()
         self.rect.topleft = (x, y)
 
         self.vel_y = 0
         self.jumping = False
         self.direction = 1  # 1 = rechts, -1 = links
-
+        
     def update(self, keys):
         dx = 0
 
@@ -43,3 +43,4 @@ class Mario(pygame.sprite.Sprite):
         self.rect.y += dy
 
         self.image = self.image_right if self.direction == 1 else self.image_left
+

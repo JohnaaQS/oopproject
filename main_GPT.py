@@ -24,7 +24,13 @@ bg = pygame.image.load('images\Achtergrond.png')
 
 # Maak sprites
 player = Mario(100, HEIGHT - 150)
-enemy = koepa.KoepaTroepa(200, HEIGHT - 150)
+enemy = koepa.KoepaTroepa(300, HEIGHT - 150)
+
+koepa_group = pygame.sprite.Group()
+koepa_group.add(enemy)
+
+mario_group = pygame.sprite.Group()
+mario_group.add(player)
 
 all_sprites = pygame.sprite.Group()
 all_sprites.add(player)

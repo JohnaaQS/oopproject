@@ -1,7 +1,7 @@
 import pygame
 import sys
-import terrein
-from mario import Mario
+import terrein_GPT
+from mario_GPT import Mario
 import koepa
 
 
@@ -10,7 +10,7 @@ pygame.init()
 WIDTH, HEIGHT = 800, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Mario Mannetje (1 afbeelding)")
-blokken = terrein.Blocks()
+blokke = terrein_GPT.Blocks()
 
 
 # Clock
@@ -29,8 +29,6 @@ enemy = koepa.KoepaTroepa(200, HEIGHT - 150)
 all_sprites = pygame.sprite.Group()
 all_sprites.add(player)
 all_sprites.add(enemy)
-if pygame.sprite.groupcollide(all_sprites, blokken, False,False):
-    print("ojay")
 # Main loop
 run = True
 while run:
@@ -38,9 +36,12 @@ while run:
     screen.blit(bg, (0,-330))
     keys = pygame.key.get_pressed()
 
-    all_sprites.update(keys)
+
     all_sprites.draw(screen)
-    blokken.draw(screen)
+    player.update(keys, blokke.blokken, HEIGHT)
+    enemy.update()  # if your enemy needs updating
+
+    blokke.draw(screen)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False

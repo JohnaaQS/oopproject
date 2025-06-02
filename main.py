@@ -24,23 +24,33 @@ bg = pygame.image.load('images\Achtergrond.png')
 
 # Maak sprites
 player = Mario(100, HEIGHT - 150)
-enemy = koepa.KoepaTroepa(100, HEIGHT - 150)
+enemy = koepa.KoepaTroepa(300, HEIGHT - 150)
 
-all_sprites = pygame.sprite.Group()
-all_sprites.add(player)
-all_sprites.add(enemy)
-if pygame.sprite.groupcollide(all_sprites, blokken, False,False):
-    print("ojay")
+koepa_group = pygame.sprite.Group()
+koepa_group.add(enemy)
+
+mario_group = pygame.sprite.Group()
+mario_group.add(player)
+
 # Main loop
 run = True
 while run:
     clock.tick(FPS)
     screen.blit(bg, (0,-330))
     keys = pygame.key.get_pressed()
-
-    all_sprites.update(keys)
-    all_sprites.draw(screen)
+    
+    mario_group.update(keys, koepa_group)
+    player = mario_group.sprites()[0]
+    if player.dood:
+        run = False  # Of toon een game over scherm
+        
+    
+    mario_group.draw(screen)
+    koepa_group.update()
+    koepa_group.draw(screen)
+    
     blokken.draw(screen)
+    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False

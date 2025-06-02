@@ -16,7 +16,7 @@ class KoepaTroepa(pygame.sprite.Sprite):
         self.min_x = x - 100
         self.max_x = x + 100
 
-    def update(self, *args):  # accepteert keys maar gebruikt ze niet
+    def update(self, *args):  # update methode
         self.rect.x += self.direction * self.speed
 
         if self.rect.left <= self.min_x:

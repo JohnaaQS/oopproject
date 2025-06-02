@@ -43,3 +43,4 @@ class Mario(pygame.sprite.Sprite):
         self.rect.y += dy
 
         self.image = self.image_right if self.direction == 1 else self.image_left
+        
